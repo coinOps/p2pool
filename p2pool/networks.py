@@ -215,6 +215,27 @@ nets = dict(
         VERSION_CHECK=lambda v: True,
     ),
 
+    anoncoin=math.Object(
+        PARENT=networks.nets['anoncoin'],
+        SHARE_PERIOD=15, # seconds target spacing
+        NEW_SHARE_PERIOD=15, # seconds
+        CHAIN_LENGTH=24*60*60//15, # shares
+        REAL_CHAIN_LENGTH=3*60*60//15, # shares
+        TARGET_LOOKBEHIND=200, # shares coinbase maturity
+        SPREAD=10, # blocks
+        NEW_SPREAD=10, # blocks
+        IDENTIFIER='7C0BBAF02246A92B'.decode('hex'),
+        PREFIX='4B472C491D74D9CE'.decode('hex'),
+        P2P_PORT=23650,
+        MIN_TARGET=0,
+        MAX_TARGET=2**256//2**20 - 1,
+        PERSIST=False,
+        WORKER_PORT=8850,
+        BOOTSTRAP_ADDRS='anc.ottrbutt.com'.split(' '),
+        ANNOUNCE_CHANNEL='#xpool',
+        VERSION_CHECK=lambda v: True,
+    ),
+
 )
 for net_name, net in nets.iteritems():
     net.NAME = net_name
