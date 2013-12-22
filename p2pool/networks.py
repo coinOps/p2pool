@@ -147,7 +147,7 @@ nets = dict(
         MAX_TARGET=2**256//2**20 - 1,
         PERSIST=False,
         WORKER_PORT=8810,
-        BOOTSTRAP_ADDRS='dgc.xpool.net'.split(' '),
+        BOOTSTRAP_ADDRS='dgc.xpool.net us-east1.cryptovein.com'.split(' '),
         ANNOUNCE_CHANNEL='#xpool',
         VERSION_CHECK=lambda v: True,
     ),
@@ -168,7 +168,7 @@ nets = dict(
         MAX_TARGET=2**256//2**20 - 1,
         PERSIST=False,
         WORKER_PORT=8820,
-        BOOTSTRAP_ADDRS='wdc.xpool.net'.split(' '),
+        BOOTSTRAP_ADDRS='wdc.xpool.net us-east1.cryptovein.com'.split(' '),
         ANNOUNCE_CHANNEL='#xpool',
         VERSION_CHECK=lambda v: True,
     ),
@@ -189,7 +189,7 @@ nets = dict(
         MAX_TARGET=2**256//2**20 - 1,
         PERSIST=False,
         WORKER_PORT=8830,
-        BOOTSTRAP_ADDRS='crc.xpool.net'.split(' '),
+        BOOTSTRAP_ADDRS='crc.xpool.net us-east1.cryptovein.com'.split(' '),
         ANNOUNCE_CHANNEL='#craftcoin',
         VERSION_CHECK=lambda v: True,
     ),
@@ -210,7 +210,7 @@ nets = dict(
         MAX_TARGET=2**256//2**20 - 1,
         PERSIST=False,
         WORKER_PORT=8840,
-        BOOTSTRAP_ADDRS='csc.xpool.net'.split(' '),
+        BOOTSTRAP_ADDRS='csc.xpool.net us-east1.cryptovein.com'.split(' '),
         ANNOUNCE_CHANNEL='#xpool',
         VERSION_CHECK=lambda v: True,
     ),
@@ -231,10 +231,71 @@ nets = dict(
         MAX_TARGET=2**256//2**20 - 1,
         PERSIST=False,
         WORKER_PORT=8850,
-        BOOTSTRAP_ADDRS='anc.ottrbutt.com'.split(' '),
+        BOOTSTRAP_ADDRS='anc.ottrbutt.com us-east1.cryptovein.com'.split(' '),
         ANNOUNCE_CHANNEL='#xpool',
         VERSION_CHECK=lambda v: True,
     ),
+    franko=math.Object(
+        PARENT=networks.nets['franko'],
+        SHARE_PERIOD=15, # seconds target spacing
+        NEW_SHARE_PERIOD=15, # seconds target spacing
+        CHAIN_LENGTH=24*60*60//10, # shares
+        REAL_CHAIN_LENGTH=24*60*60//10, # shares
+        TARGET_LOOKBEHIND=200, # shares coinbase maturity
+        SPREAD=30, # blocks
+        NEW_SPREAD=30, # blocks
+        IDENTIFIER='be43F5b8c6924210'.decode('hex'),
+        PREFIX='b587192ba6d4729a'.decode('hex'),
+        P2P_PORT=9798,
+        MIN_TARGET=0,
+        MAX_TARGET=2**256//2**20 - 1,
+        PERSIST=False,
+        WORKER_PORT=9797,
+        BOOTSTRAP_ADDRS='us-east1.cryptovein.com'.split(' '),
+        ANNOUNCE_CHANNEL='#xpool',
+        VERSION_CHECK=lambda v: True,
+    ),
+    dogecoin=math.Object(
+        PARENT=networks.nets['dogecoin'],
+        SHARE_PERIOD=15, # seconds target spacing
+        NEW_SHARE_PERIOD=15, # seconds target spacing
+        CHAIN_LENGTH=12*60*60//15, # shares
+        REAL_CHAIN_LENGTH=12*60*60//15, # shares
+        TARGET_LOOKBEHIND=20, # shares coinbase maturity
+        SPREAD=10, # blocks
+        NEW_SPREAD=10, # blocks
+        IDENTIFIER='D0D1D2D3B2F68CD9'.decode('hex'),
+        PREFIX='D0D3D4D541C11DD9'.decode('hex'),
+        P2P_PORT=8555,
+        MIN_TARGET=0,
+        MAX_TARGET=2**256//2**20 - 1,
+        PERSIST=False,
+        WORKER_PORT=9555,
+        BOOTSTRAP_ADDRS='us-east1.cryptovein.com'.split(' '),
+        ANNOUNCE_CHANNEL='#xpool',
+        VERSION_CHECK=lambda v: True,
+    ),
+    bbqcoin=math.Object(
+        PARENT=networks.nets['bbqcoin'],
+        SHARE_PERIOD=10, # seconds
+        NEW_SHARE_PERIOD=10, # seconds
+        CHAIN_LENGTH=24*60*60//10, # shares
+        REAL_CHAIN_LENGTH=24*60*60//10, # shares
+        TARGET_LOOKBEHIND=200, # shares
+        SPREAD=30, # blocks
+        NEW_SPREAD=30, # blocks
+        IDENTIFIER='626974636f696e21'.decode('hex'),
+        PREFIX='6772696c6c697421'.decode('hex'),
+        P2P_PORT=12339,
+        MIN_TARGET=0,
+        MAX_TARGET=2**256//2**20 - 1,
+        PERSIST=False,
+        WORKER_PORT=8900,
+        BOOTSTRAP_ADDRS='us-east1.cryptovein.com'.split(' '),
+        ANNOUNCE_CHANNEL='#xpool',
+        VERSION_CHECK=lambda v: True,
+    ),
+
 
 )
 for net_name, net in nets.iteritems():
