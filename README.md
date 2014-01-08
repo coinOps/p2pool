@@ -1,4 +1,4 @@
-Modified p2pool-13.3 to run with Digitalcoin, Worldcoin, Craftcoin, and Casinocoin.
+Modified p2pool-13.3 to run with Digitalcoin, Worldcoin, Craftcoin, Casinocoin and Coinyecoin.
 
 Donations
 -------------------------
