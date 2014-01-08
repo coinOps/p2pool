@@ -254,7 +254,6 @@ nets = dict(
         DUMB_SCRYPT_DIFF=2**16,
         DUST_THRESHOLD=1e8,
     ),
-
     anoncoin=math.Object(
         P2P_PREFIX='facabada'.decode('hex'),
         P2P_PORT=9377,
@@ -288,12 +287,12 @@ nets = dict(
         POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data)),
         BLOCK_PERIOD=60, # s
         SYMBOL='BQC',
-        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'BBQCoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Applica$
+        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'BBQCoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/BBQCoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.bbqcoin'), 'bbqcoin.conf'),
         BLOCK_EXPLORER_URL_PREFIX='http://bbq.cryptocoinexplorer.com/block/',
         ADDRESS_EXPLORER_URL_PREFIX='http://bbq.cryptocoinexplorer.com/address/',
         SANE_TARGET_RANGE=(2**256//1000000000 - 1, 2**256//1000 - 1),
         DUMB_SCRYPT_DIFF=2**16,
-        DUST_THRESHOLD=1e8,
+	DUST_THRESHOLD=1e8,
     ),
     franko=math.Object(
         P2P_PREFIX='7defaced'.decode('hex'),
@@ -308,12 +307,12 @@ nets = dict(
         POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data)),
         BLOCK_PERIOD=30, # s targetspacing
         SYMBOL='FRK',
-        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'franko') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Applicat$
+        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'franko') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/franko/') if platform.system() == 'Darwin' else os.path.expanduser('~/.franko'), 'franko.conf'),
         BLOCK_EXPLORER_URL_PREFIX='http://d.evco.in/abe/block/',
         ADDRESS_EXPLORER_URL_PREFIX='http://d.evco.in/abe/address/',
         SANE_TARGET_RANGE=(2**256//100000000 - 1, 2**256//1000 - 1),
         DUMB_SCRYPT_DIFF=2**16,
-        DUST_THRESHOLD=1e8,
+	DUST_THRESHOLD=1e8,
     ),
     dogecoin=math.Object(
         P2P_PREFIX='c0c0c0c0'.decode('hex'),
@@ -328,7 +327,7 @@ nets = dict(
         POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data)),
         BLOCK_PERIOD=60, # s
         SYMBOL='DOGE',
-        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'DogeCoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Applic$
+        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'DogeCoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/Dogecoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.dogecoin'), 'dogecoin.conf'),
         BLOCK_EXPLORER_URL_PREFIX='http://dogechain.info/block/',
         ADDRESS_EXPLORER_URL_PREFIX='http://dogechain.info/address/',
         TX_EXPLORER_URL_PREFIX='http://dogechain.info/tx/',
@@ -349,7 +348,7 @@ nets = dict(
         POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data)),
         BLOCK_PERIOD=90, # s
         SYMBOL='COYE',
-        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'coinyecoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Appl$
+        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'coinyecoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/coinyecoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.coinyecoin'), 'coinyecoin.conf'),
         BLOCK_EXPLORER_URL_PREFIX='http://na.net:2750/block/',
         ADDRESS_EXPLORER_URL_PREFIX='http://na.net:2750/address/',
         TX_EXPLORER_URL_PREFIX='http://na:2750/tx/',
