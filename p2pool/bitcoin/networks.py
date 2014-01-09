@@ -191,7 +191,8 @@ nets = dict(
             POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data)),
             BLOCK_PERIOD=90, # s
             SYMBOL='COYE',
-            CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'coinyecoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Appl$
+            CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'coinyecoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/coinyecoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.coinyecoin'), 'coinyecoin.conf'),
+
             BLOCK_EXPLORER_URL_PREFIX='http://coinyechain.info/block/',
             ADDRESS_EXPLORER_URL_PREFIX='http://coinyechain.info/address/',
             TX_EXPLORER_URL_PREFIX='http://coinyechain.info/tx/',
@@ -199,7 +200,6 @@ nets = dict(
             DUMB_SCRYPT_DIFF=2**16,
             DUST_THRESHOLD=1e8,
         ),
-
 )
 for net_name, net in nets.iteritems():
     net.NAME = net_name
