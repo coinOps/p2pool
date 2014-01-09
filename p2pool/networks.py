@@ -144,6 +144,27 @@ nets = dict(
         ),
 
 
+    grandcoin=math.Object(
+            PARENT=networks.nets['grandcoin'],
+            SHARE_PERIOD=15, # seconds target spacing
+            NEW_SHARE_PERIOD=15, # seconds target spacing
+            CHAIN_LENGTH=3*60*60//15, # shares
+            REAL_CHAIN_LENGTH=3*60*60//15, # shares
+            TARGET_LOOKBEHIND=20, # shares coinbase maturity
+            SPREAD=10, # blocks
+            NEW_SPREAD=10, # blocks
+            IDENTIFIER='D0D1A1D3B2F68CDD'.decode('hex'),
+            PREFIX='D2B3D4D541C11DDD'.decode('hex'),
+            P2P_PORT=8558,
+            MIN_TARGET=0,
+            MAX_TARGET=2**256//2**20 - 1,
+            PERSIST=True,
+            WORKER_PORT=9558,
+            BOOTSTRAP_ADDRS='us-east1.cryptovein.com'.split(' '),
+            ANNOUNCE_CHANNEL='#cryptovein',
+            VERSION_CHECK=lambda v: True,
+        ),
+
 )
 for net_name, net in nets.iteritems():
     net.NAME = net_name
